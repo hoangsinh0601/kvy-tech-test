@@ -2,7 +2,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { ProductCard } from "../components/ProductCard";
 import { Product } from "../types";
-import React from "react";
 
 const mockProduct: Product = {
   id: 1,

@@ -1,6 +1,5 @@
-import React from 'react';
-import { Search } from 'lucide-react';
-import { FilterState, SortOption } from '../types';
+import { Search } from "lucide-react";
+import { FilterState, SortOption } from "../types";
 
 interface FiltersProps {
   filters: FilterState;
@@ -10,17 +9,28 @@ interface FiltersProps {
   categories: string[];
 }
 
-export function Filters({ filters, onFilterChange, sortBy, onSortChange, categories }: FiltersProps) {
+export function Filters({
+  filters,
+  onFilterChange,
+  sortBy,
+  onSortChange,
+  categories,
+}: FiltersProps) {
   return (
     <div className="bg-white p-4 rounded-lg shadow-sm space-y-4">
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+        <Search
+          className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+          size={20}
+        />
         <input
           type="text"
           placeholder="Search products..."
           className="w-full pl-10 pr-4 py-2 border rounded-lg"
           value={filters.searchQuery}
-          onChange={(e) => onFilterChange({ ...filters, searchQuery: e.target.value })}
+          onChange={(e) =>
+            onFilterChange({ ...filters, searchQuery: e.target.value })
+          }
         />
       </div>
 
@@ -28,7 +38,9 @@ export function Filters({ filters, onFilterChange, sortBy, onSortChange, categor
         <select
           className="border rounded-lg p-2"
           value={filters.category}
-          onChange={(e) => onFilterChange({ ...filters, category: e.target.value })}
+          onChange={(e) =>
+            onFilterChange({ ...filters, category: e.target.value })
+          }
         >
           <option value="">All Categories</option>
           {categories.map((category) => (
@@ -46,14 +58,18 @@ export function Filters({ filters, onFilterChange, sortBy, onSortChange, categor
               placeholder="Min"
               className="w-full border rounded-lg p-2"
               value={filters.minPrice}
-              onChange={(e) => onFilterChange({ ...filters, minPrice: Number(e.target.value) })}
+              onChange={(e) =>
+                onFilterChange({ ...filters, minPrice: Number(e.target.value) })
+              }
             />
             <input
               type="number"
               placeholder="Max"
               className="w-full border rounded-lg p-2"
               value={filters.maxPrice}
-              onChange={(e) => onFilterChange({ ...filters, maxPrice: Number(e.target.value) })}
+              onChange={(e) =>
+                onFilterChange({ ...filters, maxPrice: Number(e.target.value) })
+              }
             />
           </div>
         </div>
@@ -67,9 +83,13 @@ export function Filters({ filters, onFilterChange, sortBy, onSortChange, categor
             step="0.5"
             className="w-full"
             value={filters.minRating}
-            onChange={(e) => onFilterChange({ ...filters, minRating: Number(e.target.value) })}
+            onChange={(e) =>
+              onFilterChange({ ...filters, minRating: Number(e.target.value) })
+            }
           />
-          <span className="text-sm text-gray-600">{filters.minRating} stars</span>
+          <span className="text-sm text-gray-600">
+            {filters.minRating} stars
+          </span>
         </div>
 
         <select
